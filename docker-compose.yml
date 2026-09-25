@@ -1,0 +1,15 @@
+services:
+  burmalda-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: burmalda-bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./assets:/app/assets:ro
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
