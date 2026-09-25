@@ -6,7 +6,7 @@ from app.config import SUPABASE_SERVICE_ROLE_KEY, SUPABASE_URL
 def get_supabase() -> Client:
     if not SUPABASE_URL or not SUPABASE_SERVICE_ROLE_KEY:
         raise RuntimeError(
-            "Заполни SUPABASE_URL и SUPABASE_SERVICE_ROLE_KEY в .env"
+            "В .env должны быть SUPABASE_URL и SUPABASE_SERVICE_ROLE_KEY"
         )
 
     return create_client(

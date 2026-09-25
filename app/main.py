@@ -7,7 +7,17 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 
 from app.config import BOT_TOKEN, validate_config
-from app.handlers import games, profile, start
+from app.handlers import (
+    admin,
+    birds,
+    daily,
+    games,
+    leaderboard,
+    nests,
+    profile,
+    promocodes,
+    start,
+)
 
 
 async def main() -> None:
@@ -26,9 +36,19 @@ async def main() -> None:
 
     dp = Dispatcher()
 
+    # Сначала конкретные команды/разделы.
     dp.include_router(start.router)
+    dp.include_router(admin.router)
     dp.include_router(profile.router)
+    dp.include_router(daily.router)
+    dp.include_router(birds.router)
+    dp.include_router(nests.router)
+    dp.include_router(leaderboard.router)
     dp.include_router(games.router)
+
+    # Последним: здесь есть общий @router.message(F.text),
+    # который ожидает код промокода.
+    dp.include_router(promocodes.router)
 
     await bot.delete_webhook(drop_pending_updates=False)
 

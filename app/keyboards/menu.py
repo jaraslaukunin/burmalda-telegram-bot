@@ -8,14 +8,17 @@ main_menu = ReplyKeyboardMarkup(
             KeyboardButton(text="👤 Профиль"),
         ],
         [
-            KeyboardButton(text="🎁 Ежедневка"),
             KeyboardButton(text="🐦 Птички"),
+            KeyboardButton(text="📦 Гнёзда"),
         ],
         [
+            KeyboardButton(text="🎁 Ежедневка"),
             KeyboardButton(text="🏆 Топ"),
+        ],
+        [
+            KeyboardButton(text="🎟 Промокод"),
             KeyboardButton(text="📜 Правила"),
         ],
     ],
     resize_keyboard=True,
-    input_field_placeholder="Выбирай действие...",
 )
